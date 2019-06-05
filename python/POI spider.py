@@ -24,9 +24,9 @@ keywords=['公园']
 # lat_2=114.415297
 # lon_2=22.539096  #坐标范围
 # las=1  #给las一个值1
-# ak='XZFjqeqmno2evoCCh1a3AlMkOGUnjoNA'###Baidu map api
-#ak='AIzaSyD7p5qfUABg9SO8Z776Ypj6Jk_p9T4kGEc'##google map api
-ak='8f36dadb2ea3a099c3f537d3bfd140c2'##高德key
+# ak=''###Baidu map api
+#ak=''##google map api
+ak=''##高德key
 push=[]
 for k in keywords:
     line='D:/Data/MCTS DATA/POI Data/'+k+'.csv'
@@ -56,14 +56,14 @@ for l in range(0,T):
     k=keywords[l]
     p=push[l]
     print('现在开始爬取关键字为'+k+'的POI')
-    url='http://restapi.amap.com/v3/place/text?keywords='+k+'&city=香港&output=josn&offset=20&page=1&key=8f36dadb2ea3a099c3f537d3bfd140c2'
+    url='http://restapi.amap.com/v3/place/text?keywords='+k+'&city=香港&output=josn&offset='
 
     html=requests.get(url)
     data=html.json()
     n=int(data['count'])/20
     urls=[]
     for i in range(0,int(n)):
-        url = 'http://restapi.amap.com/v3/place/text?keywords='+k+'&city=香港&output=josn&offset=20&page='+str(i+1)+'&key=8f36dadb2ea3a099c3f537d3bfd140c2'
+        url = 'http://restapi.amap.com/v3/place/text?keywords='+k+'&city=香港&output=josn&offset=20&page='+str(i+1)+'&key='
         urls.append(url)
     f=open(p,'w')
 
